@@ -4,8 +4,8 @@ import React from 'react'
 export default function Footer() {
   return (
     <div className='bg-black py-4 text-white'>
-      <h1 className='text-center text-gray-600/50 font-extrabold text-8xl tracking-wider whitespace-nowrap'>zycure Biotech</h1>
-      <div className='flex justify-between px-20 items-center mt-10 h-32'>
+      <h1 className='text-center text-gray-600/50 font-extrabold text-8xl tracking-wider whitespace-nowrap overflow-hidden'>zycure Biotech</h1>
+      <div className='flex flex-col md:flex-row  justify-between px-20 items-center mt-10 md:h-32'>
         <div className='flex flex-col h-full justify-between'>
           <Image src="/logo.png" alt="" width={60} height={20}/>
           <i className='not-italic text-xs text-gray-300'>© 2025-Present</i>

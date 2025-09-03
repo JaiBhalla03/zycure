@@ -6,10 +6,10 @@ import { whyChooseUs } from '../constant';
 const WhyChooseUs = () => {
     const whyChooseUsData = whyChooseUs;
     return (
-        <div className='px-20 py-10 flex flex-col gap-5'>
-            <h1 className='text-6xl text-black font-extrabold text-center'>Why choose us?</h1>
+        <div className='px-4 md:px-20 py-5 md:py-10 flex flex-col gap-5'>
+            <h1 className='text-4xl md:text-6xl text-black font-extrabold text-center'>Why choose us?</h1>
             <div className='flex flex-col gap-2'>
-                <div className='grid grid-cols-3 gap-2'>
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-2'>
                     <ChooseUsCard 
                         index={whyChooseUsData[0].index} 
                         heading={whyChooseUsData[0].heading}
