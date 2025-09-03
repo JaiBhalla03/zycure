@@ -8,28 +8,28 @@ export const whyChooseUs = [
         heading: 'Cutting-Edge Technology',
         desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
         color: 'bg-[#f8f8f8] text-black',
-        height: 'h-72'
+        height: 'md:h-72'
     },
     {
         index: '02',
         heading: 'Cutting-Edge Technology',
         desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
         color: 'bg-[#d3d9f7] text-black',
-        height: 'h-72'
+        height: 'md:h-72'
     },
     {
         index: '03',
         heading: 'Cutting-Edge Technology',
         desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
         color: 'bg-[#f8f8f8] text-black',
-        height: 'h-72'
+        height: 'md:h-72'
     },
     {
         index: '04',
         heading: 'Cutting-Edge Technology',
         desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
         color: 'bg-black text-white',
-        height: 'h-32'
+        height: 'md:h-32'
     }    
 ]
 
