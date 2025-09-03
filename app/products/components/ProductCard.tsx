@@ -14,8 +14,8 @@ interface ProductCardProps{
 
 const ProductCard = ({num, heading, desc, route, imageSrc, style}: ProductCardProps) => {
     return (
-        <div className={`flex ${style} px-4 py-10 rounded-sm my-10`}>
-            <div className='w-1/2 flex flex-col gap-4 p-4'>
+        <div className={`flex flex-col md:flex-row ${style} px-4 py-5 md:py-10 rounded-sm my-4 md:my-10`}>
+            <div className='w-full md:w-1/2 flex flex-col gap-4 pb-4 md:p-4'>
                 <div className='text-xs text-gray-500'>
                     <i className='not-italic text-4xl font-semibold text-purple-800'>{num}</i> / <i className='not-italic'>05</i>
                 </div>

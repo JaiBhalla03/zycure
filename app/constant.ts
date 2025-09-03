@@ -128,7 +128,7 @@ export const productCardData = [
         desc: "An advanced wound care solution that combines antibacterial and anti-inflammatory agents with collagen to reduce infection, accelerate healing, and restore skin integrity.",
         route: "/products/mupirocin-metronidazole-collagen",
         imageSrc: "/product1.jpg",
-        style: "bg-green-50 flex-row-reverse"
+        style: "bg-green-50 md:flex-row-reverse"
     },
     {
         num: "03",
@@ -144,7 +144,7 @@ export const productCardData = [
         desc: "Pre-hydrated collagen sheets designed for easy application on wounds. They promote faster healing by maintaining moisture balance and reducing patient discomfort.",
         route: "/products/collagen-wet-sheets",
         imageSrc: "/product1.jpg",
-        style: "bg-pink-50 flex-row-reverse"
+        style: "bg-pink-50 md:flex-row-reverse"
     },
     {
         num: "05",

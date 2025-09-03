@@ -14,9 +14,9 @@ const MissionCard = ({position, num, heading, desc}: MissionCardProps) => {
                 <div>
                     <div className='border-b-1 pb-2 border-white flex items-center gap-2'>
                         <div className='text-xs text-yellow-300'>{num}</div>
-                        <h1 className='text-4xl tracking-wide'>{heading}</h1>
+                        <h1 className='text-2xl md:text-4xl tracking-wide'>{heading}</h1>
                     </div>
-                    <p className='text-sm pt-2 font-light'>{desc}</p>
+                    <p className='text-xs md:text-sm pt-2 font-light'>{desc}</p>
                 </div>
             </div>
         </div>

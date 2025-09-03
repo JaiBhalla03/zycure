@@ -26,7 +26,7 @@ const Mission = () => {
                     </p>
                 </div>
             </div>  
-            <div className='md:px-10'>
+            <div className='md:px-10 space-y-5 md:space-y-0'>
                 {
                     missionData.map((item, index) => (
                         <MissionCard
