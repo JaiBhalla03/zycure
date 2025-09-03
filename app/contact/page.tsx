@@ -63,19 +63,19 @@ const page = () => {
     };
 
     return (
-        <div className='px-20 pt-20 pb-10'>
+        <div className='px-4 md:px-20 pt-16 md:pt-20 pb-5 md:pb-10'>
            <SmallHeading heading={'GET IN CONTACT'}/>
-           <h1 className='text-6xl font-semibold'>Contact Us</h1>
-           <form ref={form} onSubmit={sendEmail} id={'myForm'} className={'flex flex-col gap-4 p-8'}>
-                            <div className={'flex gap-4'}>
+           <h1 className='text-4xl md:text-6xl font-semibold pb-4 md:pb-0'>Contact Us</h1>
+           <form ref={form} onSubmit={sendEmail} id={'myForm'} className={'flex flex-col gap-4 md:p-8'}>
+                            <div className={'flex flex-col md:flex-row gap-4'}>
                                 <input
-                                    className={'p-3 bg-gray-100 rounded-sm text-center w-1/2 text-sm'}
+                                    className={'p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm'}
                                     type={'text'}
                                     name={'from_name'}
                                     placeholder={'Your Name'}
                                     />
                                 <input
-                                    className={'p-3 bg-gray-100 rounded-sm text-center w-1/2 text-sm'}
+                                    className={'p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm'}
                                     type={'email'}
                                     name={'from_email'}
                                     placeholder={'Your Email Address'}
