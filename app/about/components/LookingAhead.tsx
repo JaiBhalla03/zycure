@@ -4,10 +4,13 @@ import React from 'react';
 
 const LookingAhead = () => {
     return (
-        <div className='px-20 py-10 flex flex-col items-center'>
-            <SmallHeading heading="OUR JOURNEY"/>
-            <h1 className='text-6xl font-semibold'>Looking Ahead</h1>
-            <p className='text-2xl text-center py-10'>
+        <div className='px-4 md:px-20 py-5 md:py-10 flex flex-col items-start md:items-center'>
+            <div className='flex flex-col items-start md:items-center'>
+                <SmallHeading heading="OUR JOURNEY"/>
+                <h1 className='text-4xl md:text-6xl font-semibold'>Looking Ahead</h1>
+            </div>
+            
+            <p className='text-lg md:text-2xl text-center py-4 md:py-10'>
                 As we step into the future, Zycure Biotech remains dedicated to shaping the next era of healthcare innovation. Our focus is not only on addressing today’s medical challenges but also on anticipating tomorrow’s needs with foresight and determination. By combining cutting-edge research, global partnerships, and a passion for patient care, we are building a future where advanced healthcare is accessible, sustainable, and impactful.
             </p>
             <div className='flex gap-1 justify-center mx-auto items-center group'>
