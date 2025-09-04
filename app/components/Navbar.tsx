@@ -74,12 +74,12 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="h-screen md:hidden bg-white shadow-md transition-all duration-500">
-          <div className="h-screen flex flex-col items-center justify-around pb-20 text-gray-700 font-medium text-lg">
-            <Link href="/" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link href="/about" onClick={() => setIsOpen(false)}>About Us</Link>
-            <Link href="/products" onClick={() => setIsOpen(false)}>Products</Link>
-            <Link href="/careers" onClick={() => setIsOpen(false)}>Careers</Link>
-            <Link href="/contact" onClick={() => setIsOpen(false)}>Contact Us</Link>
+          <div className="h-screen flex flex-col items-center py-4 text-gray-700 font-medium text-lg">
+            <Link href="/" onClick={() => setIsOpen(false)} className="w-full text-center py-10">Home</Link>
+            <Link href="/about" onClick={() => setIsOpen(false)} className="w-full text-center py-10">About Us</Link>
+            <Link href="/products" onClick={() => setIsOpen(false)} className="w-full text-center py-10">Products</Link>
+            <Link href="/careers" onClick={() => setIsOpen(false)} className="w-full text-center py-10">Careers</Link>
+            <Link href="/contact" onClick={() => setIsOpen(false)} className="w-full text-center py-10">Contact Us</Link>
           </div>
         </div>
       )}
