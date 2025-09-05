@@ -1,5 +1,4 @@
 "use client";
-import { StaticImageData } from "next/image";
 import React, { Suspense, useRef } from "react";
 import { MoveUpRight } from "lucide-react";
 import { Canvas, useFrame } from "@react-three/fiber";
@@ -12,8 +11,7 @@ interface ProductCardProps {
   heading: string;
   desc: string;
   route: string;
-  imageSrc?: string | StaticImageData;
-  modelUrl?: string;
+  modelUrl: string; // ✅ only .glb now
   style: string;
 }
 
@@ -42,11 +40,12 @@ const MovingLights = () => {
   );
 };
 
-const ProductCard = ({ num, heading, desc, route, imageSrc, modelUrl, style }: ProductCardProps) => {
+const ProductCard = ({ num, heading, desc, route, modelUrl, style }: ProductCardProps) => {
   return (
     <div
       className={`flex flex-col md:flex-row ${style} px-4 py-5 md:py-10 rounded-sm my-4 md:my-10`}
     >
+      {/* Left Section */}
       <div className="w-full md:w-1/2 flex flex-col gap-4 pb-4 md:p-4">
         <div className="text-xs text-gray-500">
           <i className="not-italic text-4xl font-semibold text-purple-800">{num}</i> /{" "}
@@ -64,25 +63,15 @@ const ProductCard = ({ num, heading, desc, route, imageSrc, modelUrl, style }: P
         </div>
       </div>
 
-      {/* Right Section */}
+      {/* Right Section → GLB Viewer */}
       <div className="relative w-full md:w-1/2 h-80">
-        {modelUrl ? (
-          <Canvas camera={{ position: [0, 1.5, 4], fov: 35 }} style={{ background: "transparent" }}>
-            <Suspense fallback={null}>
-              <ModelViewer url={modelUrl} />
-            </Suspense>
-            <MovingLights /> {/* 🔥 Dynamic lights */}
-            <OrbitControls enableZoom={true} autoRotate autoRotateSpeed={1.5} />
-          </Canvas>
-        ) : (
-          imageSrc && (
-            <img
-              src={typeof imageSrc === "string" ? imageSrc : (imageSrc as string)}
-              alt={heading}
-              className="object-contain w-full h-full rounded-sm"
-            />
-          )
-        )}
+        <Canvas camera={{ position: [0, 1.5, 4], fov: 35 }} style={{ background: "transparent" }}>
+          <Suspense fallback={null}>
+            <ModelViewer url={modelUrl} />
+          </Suspense>
+          <MovingLights /> {/* 🔥 Animated Lights */}
+          <OrbitControls enableZoom={true} autoRotate autoRotateSpeed={1.5} />
+        </Canvas>
       </div>
     </div>
   );

@@ -87,7 +87,6 @@ const Page = () => {
                 heading={item.heading}
                 desc={item.desc}
                 route={item.route}
-                imageSrc={item.imageSrc}
                 modelUrl={item.modelUrl}
                 style={item.style}
               />
