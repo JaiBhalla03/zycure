@@ -88,6 +88,7 @@ const Page = () => {
                 desc={item.desc}
                 route={item.route}
                 imageSrc={item.imageSrc}
+                modelUrl={item.modelUrl}
                 style={item.style}
               />
             </motion.div>

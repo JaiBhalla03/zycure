@@ -119,7 +119,8 @@ export const productCardData = [
         heading: "Papain + Urea Enzymatic Debriding Topical Cream",
         desc: "A powerful enzymatic formulation designed to gently and effectively remove necrotic tissue, promoting faster wound healing for chronic wounds, burns, and diabetic foot ulcers.",
         route: "/products/papain-urea-cream",
-        imageSrc: "/product1.jpg",
+        imageSrc: "/collabact_nano.png",
+        modelUrl: "debrefix.glb",
         style: "bg-blue-50"
     },
     {
@@ -127,7 +128,8 @@ export const productCardData = [
         heading: "Mupirocin + Metronidazole + Collagen Powder",
         desc: "An advanced wound care solution that combines antibacterial and anti-inflammatory agents with collagen to reduce infection, accelerate healing, and restore skin integrity.",
         route: "/products/mupirocin-metronidazole-collagen",
-        imageSrc: "/product1.jpg",
+        imageSrc: "/collabact_m2.png",
+        modelUrl: "collabact_w.glb",
         style: "bg-green-50 md:flex-row-reverse"
     },
     {
@@ -135,7 +137,8 @@ export const productCardData = [
         heading: "Collagen Dry Sheets",
         desc: "A collagen-based wound dressing that supports tissue regeneration, maintains a moist environment, and enhances the body’s natural healing process for chronic and surgical wounds.",
         route: "/products/collagen-dry-sheets",
-        imageSrc: "/product1.jpg",
+        imageSrc: "/collabact_nu.png",
+        modelUrl: "collabact_m2.glb",
         style: "bg-purple-50"
     },
     {
@@ -143,7 +146,8 @@ export const productCardData = [
         heading: "Collagen Wet Sheets",
         desc: "Pre-hydrated collagen sheets designed for easy application on wounds. They promote faster healing by maintaining moisture balance and reducing patient discomfort.",
         route: "/products/collagen-wet-sheets",
-        imageSrc: "/product1.jpg",
+        imageSrc: "/collabact_w.png",
+        modelUrl: "collabact_nu.glb",
         style: "bg-pink-50 md:flex-row-reverse"
     },
     {
@@ -151,7 +155,8 @@ export const productCardData = [
         heading: "Nanocrystalline Silver + Collagen",
         desc: "A next-generation wound dressing combining the antimicrobial power of nanocrystalline silver with collagen’s regenerative properties to prevent infections and accelerate healing.",
         route: "/products/nanocrystalline-silver-collagen",
-        imageSrc: "/product1.jpg",
+        imageSrc: "/debrefix.png",
+        modelUrl: "collabact_nano.glb",
         style: "bg-yellow-50"
     }
 ];
