@@ -28,11 +28,11 @@ export const metadata: Metadata = {
     title: "Zycure Biotech | Innovative Healthcare Solutions",
     description:
       "Leading pharma company in India with expertise in Ortho, Plastic Surgery, and Wound Care.",
-    url: "https://yourdomain.com",
+    url: "https://zycure-biotech.vercel.app/",
     siteName: "Zycure Biotech",
     images: [
       {
-        url: "https://yourdomain.com/og-image.jpg",
+        url: "https://zycure-biotech.vercel.app/",
         width: 1200,
         height: 630,
         alt: "Zycure Biotech",
@@ -41,15 +41,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
     type: "website",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Zycure Biotech | Innovative Healthcare Solutions",
-    description:
-      "Innovating healthcare in Ortho, Plastic Surgery, and Chronic Wound Management.",
-    images: ["https://yourdomain.com/og-image.jpg"],
-  },
   alternates: {
-    canonical: "https://yourdomain.com",
+    canonical: "https://zycure-biotech.vercel.app/",
   },
   robots: {
     index: true,
