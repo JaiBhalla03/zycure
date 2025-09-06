@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import JoinUs from "./components/JoinUs";
 import WhyChooseUs from "./components/WhyChooseUs";
 
+
 export default function Home() {
   return (
     <div className="">
