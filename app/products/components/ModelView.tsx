@@ -8,7 +8,7 @@ interface ModelViewerProps {
 
 const ModelViewer = ({ url }: ModelViewerProps) => {
   const { scene } = useGLTF(url);
-  return <primitive object={scene} scale={3} />;
+  return <primitive object={scene} scale={3.2} />;
 };
 
 export default ModelViewer;

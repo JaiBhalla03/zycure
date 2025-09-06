@@ -3,7 +3,6 @@
 import React, { useRef, useState } from 'react';
 import SmallHeading from '../components/utils/SmallHeading';
 import { BsFillSendFill } from 'react-icons/bs';
-import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { motion } from 'framer-motion';
@@ -26,12 +25,14 @@ const Page = () => {
     e.preventDefault();
 
     if (form.current) {
-      const name = form.current.from_name.value.trim();
-      const email = form.current.from_email.value.trim();
-      const subject = form.current.from_subject.value.trim();
-      const message = form.current.message.value.trim();
+      const formData = {
+        from_name: form.current.from_name.value.trim(),
+        from_email: form.current.from_email.value.trim(),
+        from_subject: form.current.from_subject.value.trim(),
+        message: form.current.message.value.trim(),
+      };
 
-      if (!name || !email || !subject || !message) {
+      if (!formData.from_name || !formData.from_email || !formData.from_subject || !formData.message) {
         notify('Please fill in all fields', false);
         return;
       }
@@ -39,39 +40,36 @@ const Page = () => {
       setIsSubmitting(true);
 
       try {
-        const result = await emailjs.sendForm(
-          'service_w5gxg7k',
-          'template_9g7wwx1',
-          form.current,
-          'L_SO4vLTln1gilDdT'
-        );
-        console.log(result.text);
-        form.current.reset();
-        notify('Email sent successfully');
-      } catch (error) {
-        if (error instanceof Error) {
-          console.log(error.message);
-          notify('Failed to send email', false);
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          form.current.reset();
+          notify("Email sent successfully");
         } else {
-          console.log(error);
-          notify('An unknown error occurred', false);
+          notify(data.error || "Failed to send email", false);
         }
+      } catch (err) {
+        console.error(err);
+        notify("An unknown error occurred", false);
       } finally {
         setIsSubmitting(false);
       }
     }
   };
 
-  // Variants for stagger animation
+  // Animation variants
   const formVariants = {
     hidden: { opacity: 0, y: 40 },
     show: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.2,
-      },
+      transition: { duration: 0.6, staggerChildren: 0.2 },
     },
   };
 
@@ -81,57 +79,61 @@ const Page = () => {
   };
 
   return (
-    <div className='px-4 md:px-20 pt-16 md:pt-20 pb-5 md:pb-10'>
-      {/* Animated Heading */}
+    <div className="px-4 md:px-20 pt-16 md:pt-20 pb-5 md:pb-10">
+      {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
         <SmallHeading heading={'GET IN CONTACT'} />
-        <motion.h1 
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }} className='text-4xl md:text-6xl font-semibold pb-4 md:pb-0'>Contact Us</motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
+          className="text-4xl md:text-6xl font-semibold pb-4 md:pb-0"
+        >
+          Contact Us
+        </motion.h1>
       </motion.div>
 
-      {/* Animated Form */}
+      {/* Form */}
       <motion.form
         ref={form}
         onSubmit={sendEmail}
-        id={'myForm'}
-        className={'flex flex-col gap-4 md:p-8'}
+        id="myForm"
+        className="flex flex-col gap-4 md:p-8"
         variants={formVariants}
         initial="hidden"
         animate="show"
       >
-        <motion.div className={'flex flex-col md:flex-row gap-4'} variants={fieldVariants}>
+        <motion.div className="flex flex-col md:flex-row gap-4" variants={fieldVariants}>
           <input
-            className={'p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm'}
-            type={'text'}
-            name={'from_name'}
-            placeholder={'Your Name'}
+            className="p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm"
+            type="text"
+            name="from_name"
+            placeholder="Your Name"
           />
           <input
-            className={'p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm'}
-            type={'email'}
-            name={'from_email'}
-            placeholder={'Your Email Address'}
+            className="p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm"
+            type="email"
+            name="from_email"
+            placeholder="Your Email Address"
           />
         </motion.div>
 
         <motion.input
-          className={'p-3 bg-gray-100 rounded-sm text-center text-sm'}
-          type={'text'}
-          name={'from_subject'}
-          placeholder={'Subject of your message'}
+          className="p-3 bg-gray-100 rounded-sm text-center text-sm"
+          type="text"
+          name="from_subject"
+          placeholder="Subject of your message"
           variants={fieldVariants}
         />
 
         <motion.textarea
-          className={'p-3 bg-gray-100 rounded-sm text-center text-sm'}
-          name={'message'}
-          placeholder={'Type your message.....'}
+          className="p-3 bg-gray-100 rounded-sm text-center text-sm"
+          name="message"
+          placeholder="Type your message....."
           variants={fieldVariants}
         />
 
@@ -143,7 +145,7 @@ const Page = () => {
           whileTap={{ scale: 0.95 }}
           variants={fieldVariants}
         >
-          <div className='flex gap-1 justify-center items-center group'>
+          <div className="flex gap-1 justify-center items-center group">
             <div className="h-10 flex justify-center items-center text-xs cursor-pointer bg-black text-white duration-300 rounded-sm py-2 px-4">
               {isSubmitting ? 'Sending...' : 'Post'}
             </div>

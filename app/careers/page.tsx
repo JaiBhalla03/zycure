@@ -1,117 +1,190 @@
-'use client';
-import React, { useState } from 'react';
-import SmallHeading from '../components/utils/SmallHeading';
+"use client";
 
-const page = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        phone: '',
-        email: '',
-        message: '',
-        resume: null as File | null
+import React, { useRef, useState } from "react";
+import SmallHeading from "../components/utils/SmallHeading";
+import { BsFillSendFill } from "react-icons/bs";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { motion } from "framer-motion";
+
+const Page = () => {
+  const form = useRef<HTMLFormElement>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const notify = (message: string, success = true) => {
+    toast[success ? "success" : "error"](message, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeButton: false,
+      className: "custom-toast",
     });
+  };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files && e.target.files[0]) {
-            setFormData({ ...formData, resume: e.target.files[0] });
-        }
-    };
+    if (form.current) {
+      const data = new FormData(form.current);
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+      const name = data.get("name")?.toString().trim();
+      const phone = data.get("phone")?.toString().trim();
+      const email = data.get("email")?.toString().trim();
+      const designation = data.get("designation")?.toString().trim();
+      const message = data.get("message")?.toString().trim();
 
-        const data = new FormData();
-        data.append('name', formData.name);
-        data.append('phone', formData.phone);
-        data.append('email', formData.email);
-        data.append('message', formData.message);
-        if (formData.resume) data.append('resume', formData.resume);
+      if (!name || !phone || !email || !designation || !message) {
+        notify("Please fill in all fields", false);
+        return;
+      }
 
-        const response = await fetch('https://formspree.io/f/meollwdp', {
-            method: 'POST',
-            body: data
+      setIsSubmitting(true);
+
+      try {
+        const res = await fetch("/api/careers", {
+          method: "POST",
+          body: data,
         });
 
-        if (response.ok) {
-            alert('Application submitted successfully!');
-            setFormData({ name: '', phone: '', email: '', message: '', resume: null });
+        if (res.ok) {
+          form.current.reset();
+          notify("Application submitted successfully");
         } else {
-            alert('Something went wrong. Please try again.');
+          const errorData = await res.json();
+          notify(errorData.error || "Failed to submit application", false);
         }
-    };
+      } catch (err) {
+        console.error(err);
+        notify("An unknown error occurred", false);
+      } finally {
+        setIsSubmitting(false);
+      }
+    }
+  };
 
-    return (
-        <div className='px-6 md:px-20 pt-20 pb-10'>
-            <SmallHeading heading={'JOIN OUR MISSION'} />
-            <h1 className='text-4xl md:text-6xl font-semibold'>Careers</h1>
+  // Animation variants
+  const formVariants = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.2 },
+    },
+  };
 
-            <div className='flex flex-col md:flex-row justify-between py-10 gap-6'>
-                <p className='text-sm md:text-base md:w-1/2 text-gray-500'>
-                    At Zycure, we believe in transforming healthcare through innovation, quality, and care. Our work is driven by a passion for improving patient outcomes and creating solutions that make a meaningful difference in people’s lives. 
-                    We are looking for curious minds, problem solvers, and driven professionals who want to be part of a dynamic and forward-thinking organization.
-                </p>
+  const fieldVariants = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
 
-                <form 
-                    onSubmit={handleSubmit} 
-                    className='flex flex-col gap-4 w-full md:w-1/2 bg-gray-50 p-6 rounded-lg shadow-md'
-                    encType="multipart/form-data"
-                >
-                    <input
-                        type='text'
-                        name='name'
-                        placeholder='Full Name'
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className='p-3 rounded border border-gray-300'
-                    />
-                    <input
-                        type='tel'
-                        name='phone'
-                        placeholder='Phone Number'
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className='p-3 rounded border border-gray-300'
-                    />
-                    <input
-                        type='email'
-                        name='email'
-                        placeholder='Email Address'
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className='p-3 rounded border border-gray-300'
-                    />
-                    <input
-                        type='file'
-                        name='resume'
-                        onChange={handleFileChange}
-                        accept='.pdf,.doc,.docx'
-                        className='p-2'
-                    />
-                    <textarea
-                        name='message'
-                        placeholder='Message'
-                        value={formData.message}
-                        onChange={handleChange}
-                        rows={4}
-                        className='p-3 rounded border border-gray-300'
-                    />
-                    <button
-                        type='submit'
-                        className='bg-blue-600 text-white p-3 rounded hover:bg-blue-700 transition-colors'
-                    >
-                        Submit Application
-                    </button>
-                </form>
+  return (
+    <div className="px-4 md:px-20 pt-16 md:pt-20 pb-5 md:pb-10">
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        <SmallHeading heading={"JOIN OUR MISSION"} />
+        <motion.h1
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.5 }}
+          className="text-4xl md:text-6xl font-semibold pb-4 md:pb-0"
+        >
+          Careers
+        </motion.h1>
+      </motion.div>
+
+      {/* Form */}
+      <motion.form
+        ref={form}
+        onSubmit={handleSubmit}
+        id="careerForm"
+        className="flex flex-col gap-4 md:p-8"
+        variants={formVariants}
+        initial="hidden"
+        animate="show"
+        encType="multipart/form-data"
+      >
+        <motion.div
+          className="flex flex-col md:flex-row gap-4"
+          variants={fieldVariants}
+        >
+          <input
+            className="p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm"
+            type="text"
+            name="name"
+            placeholder="Full Name"
+          />
+          <input
+            className="p-3 bg-gray-100 rounded-sm text-center w-full md:w-1/2 text-sm"
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+          />
+        </motion.div>
+
+        <motion.input
+          className="p-3 bg-gray-100 rounded-sm text-center text-sm"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          variants={fieldVariants}
+        />
+
+        <motion.select
+          name="designation"
+          className="p-3 bg-gray-100 rounded-sm text-center text-sm"
+          variants={fieldVariants}
+        >
+          <option value="">Select Designation</option>
+          <option value="Business Manager">Business Manager</option>
+          <option value="Area Business Manager">Area Business Manager</option>
+          <option value="Regional Business Manager">
+            Regional Business Manager
+          </option>
+          <option value="Zonal Business Manager">Zonal Business Manager</option>
+        </motion.select>
+
+        <motion.input
+          type="file"
+          name="resume"
+          accept=".pdf,.doc,.docx"
+          className="p-2 bg-gray-100 rounded-sm text-sm"
+          variants={fieldVariants}
+        />
+
+        <motion.textarea
+          className="p-3 bg-gray-100 rounded-sm text-center text-sm"
+          name="message"
+          placeholder="Why should we hire you?"
+          rows={4}
+          variants={fieldVariants}
+        />
+
+        <motion.button
+          type="submit"
+          disabled={isSubmitting}
+          className="mx-auto"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          variants={fieldVariants}
+        >
+          <div className="flex gap-1 justify-center items-center group">
+            <div className="h-10 flex justify-center items-center text-xs cursor-pointer bg-black text-white duration-300 rounded-sm py-2 px-4">
+              {isSubmitting ? "Submitting…" : "Submit"}
             </div>
-        </div>
-    );
+            <div className="h-10 w-10 flex justify-center items-center cursor-pointer bg-black text-white duration-300 rounded-sm">
+              <BsFillSendFill />
+            </div>
+          </div>
+        </motion.button>
+      </motion.form>
+
+      <ToastContainer />
+    </div>
+  );
 };
 
-export default page;
+export default Page;
