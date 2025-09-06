@@ -5,29 +5,29 @@ import { BicepsFlexed, Handshake, Lightbulb, LucideIcon } from "lucide-react";
 export const whyChooseUs = [
     {
         index: '01',
-        heading: 'Cutting-Edge Technology',
-        desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
+        heading: 'Trusted Partnerships',
+        desc: 'Collaborating with leading pharma giants like Natco, Akums, Intas, and Heil Pharma, we ensure uncompromised quality and industry-backed credibility.',
         color: 'bg-[#f8f8f8] text-black',
         height: 'md:h-72'
     },
     {
         index: '02',
-        heading: 'Cutting-Edge Technology',
-        desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
+        heading: 'Cutting-Edge Manufacturing',
+        desc: 'With our upcoming world-class facility in Raibareli, designed as per FDA, WHO, and cGMP standards, we deliver innovative and reliable healthcare solutions.',
         color: 'bg-[#d3d9f7] text-black',
         height: 'md:h-72'
     },
     {
         index: '03',
-        heading: 'Cutting-Edge Technology',
-        desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
+        heading: 'Expert Leadership',
+        desc: 'Guided by visionary directors and a dedicated senior management team, our strategy and execution fuel rapid growth across the orthopedic and chronic care segments.',
         color: 'bg-[#f8f8f8] text-black',
         height: 'md:h-72'
     },
     {
         index: '04',
-        heading: 'Cutting-Edge Technology',
-        desc: 'We utilize the latest technologies to ensure high standards of quality and safety',
+        heading: 'Commitment to Patient Care',
+        desc: 'Every milestone reflects our mission to enhance patient outcomes through advanced research, continuous innovation, and value-driven therapies.',
         color: 'bg-black text-white',
         height: 'md:h-32'
     }    
@@ -60,27 +60,27 @@ export const ourJourneyData: JourneyItem[] = [
 export const TeamCardData = [
     {
         reverse: false,
-        imageSrc: '/ourJourneyImage.jpg', // or RituImg if imported
+        imageSrc: '/ritu.png', // or RituImg if imported
         heading: 'Ritu Bhalla – Whole Time Director',
         desc: 'Leads the strategic vision of Zycure, focusing on long-term growth, business development, and fostering innovation in Orthopedics and healthcare solutions.'
     },
     {
         reverse: true,
-        imageSrc: '/ourJourneyImage.jpg', // or PankajImg
+        imageSrc: '/pankaj.jpg', // or PankajImg
         heading: 'Pankaj Shukla – Whole Time Director',
         desc: 'Oversees operations and strategic collaborations, ensuring efficient processes, strong partnerships with top pharma companies, and smooth execution across all business functions.'
     },
     {
         reverse: false,
-        imageSrc: '/ourJourneyImage.jpg', // or LalitImg
+        imageSrc: '/lalit.jpg', // or LalitImg
         heading: 'Dr. Lalit Kumar Singh – Whole Time Director',
         desc: 'Brings extensive expertise in healthcare and biopharmaceuticals, guiding research initiatives and product development to ensure high-quality patient-centric solutions.'
     },
     {
         reverse: true,
-        imageSrc: '/ourJourneyImage.jpg', // or GauravImg
+        imageSrc: '/gaurav.jpg', // or GauravImg
         heading: 'Dr. Gaurav Kumar Saxena – Whole Time Director',
-        desc: 'Focuses on product innovation and operational excellence, driving initiatives in chronic wound management, Orthopedics, and critical care to improve patient outcomes.'
+        desc: 'Dr. Gaurav Kumar Saxena brings over 25 years of expertise in the pharmaceutical industry, having worked with renowned companies Like Sun Pharma,Alkem,Ipca &MSN His extensive experience spans critical care, acute, gynecology and gastroenterology segments, with a proven track record of Building and maintaining strong relationships with core customers,Delivering effective, result-oriented team and field management.Dr. Saxena leadership and expertise make him a valuable asset in the pharmaceutical industry.'
     }
 ];
 
@@ -129,7 +129,7 @@ export const productCardData = [
         desc: "An advanced wound care solution that combines antibacterial and anti-inflammatory agents with collagen to reduce infection, accelerate healing, and restore skin integrity.",
         route: "/products/mupirocin-metronidazole-collagen",
         imageSrc: "/collabact_m2.png",
-        modelUrl: "collabact_w.glb",
+        modelUrl: "collabact_m2.glb",
         style: "bg-green-50 md:flex-row-reverse"
     },
     {
@@ -138,7 +138,7 @@ export const productCardData = [
         desc: "A collagen-based wound dressing that supports tissue regeneration, maintains a moist environment, and enhances the body’s natural healing process for chronic and surgical wounds.",
         route: "/products/collagen-dry-sheets",
         imageSrc: "/collabact_nu.png",
-        modelUrl: "collabact_m2.glb",
+        modelUrl: "collabact_nu.glb",
         style: "bg-purple-50"
     },
     {
@@ -147,7 +147,7 @@ export const productCardData = [
         desc: "Pre-hydrated collagen sheets designed for easy application on wounds. They promote faster healing by maintaining moisture balance and reducing patient discomfort.",
         route: "/products/collagen-wet-sheets",
         imageSrc: "/collabact_w.png",
-        modelUrl: "collabact_nu.glb",
+        modelUrl: "collabact_w.glb",
         style: "bg-pink-50 md:flex-row-reverse"
     },
     {

@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { MoveUpRight } from "lucide-react";
 import ProductBanner from "./ProductBanner";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -23,12 +24,16 @@ const Hero = () => {
 
         {/* Contact Button */}
         <div className="flex items-center gap-1">
-          <div className="rounded-sm text-white h-10 bg-teal-800 flex justify-center items-center px-6 text-sm font-thin cursor-pointer">
-            Contact Us
-          </div>
-          <div className="rounded-sm text-white h-10 w-10 flex justify-center items-center bg-teal-800 cursor-pointer">
-            <MoveUpRight />
-          </div>
+          <Link href="/contact">
+            <div className="rounded-sm text-white h-10 bg-teal-800 flex justify-center items-center px-6 text-sm font-thin cursor-pointer">
+              Contact Us
+            </div>
+          </Link>
+          <Link href="/contact">
+            <div className="rounded-sm text-white h-10 w-10 flex justify-center items-center bg-teal-800 cursor-pointer">
+              <MoveUpRight />
+            </div>
+          </Link>
         </div>
 
         {/* Product Banner */}
