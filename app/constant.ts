@@ -60,26 +60,26 @@ export const ourJourneyData: JourneyItem[] = [
 export const TeamCardData = [
     {
         reverse: false,
-        imageSrc: '/ritu.png', // or RituImg if imported
-        heading: 'Ritu Bhalla – Whole Time Director',
+        name: 'Ritu Bhalla',
+        designation: 'Whole Time Director',
         desc: 'Leads the strategic vision of Zycure, focusing on long-term growth, business development, and fostering innovation in Orthopedics and healthcare solutions.'
     },
     {
         reverse: true,
-        imageSrc: '/pankaj.jpg', // or PankajImg
-        heading: 'Pankaj Shukla – Whole Time Director',
+        name: 'Pankaj Shukla',
+        designation: 'Whole Time Director',
         desc: 'Oversees operations and strategic collaborations, ensuring efficient processes, strong partnerships with top pharma companies, and smooth execution across all business functions.'
     },
     {
         reverse: false,
-        imageSrc: '/lalit.jpg', // or LalitImg
-        heading: 'Dr. Lalit Kumar Singh – Whole Time Director',
+        name: 'Dr. Lalit Kumar Singh',
+        designation: 'Whole Time Director',
         desc: 'Brings extensive expertise in healthcare and biopharmaceuticals, guiding research initiatives and product development to ensure high-quality patient-centric solutions.'
     },
     {
         reverse: true,
-        imageSrc: '/gaurav.jpg', // or GauravImg
-        heading: 'Dr. Gaurav Kumar Saxena – Whole Time Director',
+        name: 'Dr. Gaurav Kumar Saxena',
+        designation: 'Whole Time Director',
         desc: 'Dr. Gaurav Kumar Saxena brings over 25 years of expertise in the pharmaceutical industry, having worked with renowned companies Like Sun Pharma,Alkem,Ipca &MSN His extensive experience spans critical care, acute, gynecology and gastroenterology segments, with a proven track record of Building and maintaining strong relationships with core customers,Delivering effective, result-oriented team and field management.Dr. Saxena leadership and expertise make him a valuable asset in the pharmaceutical industry.'
     }
 ];
