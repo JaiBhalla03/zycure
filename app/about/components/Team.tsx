@@ -53,7 +53,7 @@ const Team = () => {
         variants={containerVariant}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="grid grid-cols-2 gap-10 w-full"
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 w-full"
       >
         {TeamCardData.map((item, index) => (
           <motion.div key={index} variants={itemVariant}>
