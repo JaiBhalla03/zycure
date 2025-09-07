@@ -114,49 +114,85 @@ export const missionCardData = [
 
 
 export const productCardData = [
-    {
-        num: "01",
-        heading: "Papain + Urea Enzymatic Debriding Topical Cream",
-        desc: "A powerful enzymatic formulation designed to gently and effectively remove necrotic tissue, promoting faster wound healing for chronic wounds, burns, and diabetic foot ulcers.",
-        route: "/products/papain-urea-cream",
-        imageSrc: "/collabact_nano.png",
-        modelUrl: "debrefix.glb",
-        style: "bg-blue-50"
-    },
-    {
-        num: "02",
-        heading: "Mupirocin + Metronidazole + Collagen Powder",
-        desc: "An advanced wound care solution that combines antibacterial and anti-inflammatory agents with collagen to reduce infection, accelerate healing, and restore skin integrity.",
-        route: "/products/mupirocin-metronidazole-collagen",
-        imageSrc: "/collabact_m2.png",
-        modelUrl: "collabact_m2.glb",
-        style: "bg-green-50 md:flex-row-reverse"
-    },
-    {
-        num: "03",
-        heading: "Collagen Dry Sheets",
-        desc: "A collagen-based wound dressing that supports tissue regeneration, maintains a moist environment, and enhances the body’s natural healing process for chronic and surgical wounds.",
-        route: "/products/collagen-dry-sheets",
-        imageSrc: "/collabact_nu.png",
-        modelUrl: "collabact_nu.glb",
-        style: "bg-purple-50"
-    },
-    {
-        num: "04",
-        heading: "Collagen Wet Sheets",
-        desc: "Pre-hydrated collagen sheets designed for easy application on wounds. They promote faster healing by maintaining moisture balance and reducing patient discomfort.",
-        route: "/products/collagen-wet-sheets",
-        imageSrc: "/collabact_w.png",
-        modelUrl: "collabact_w.glb",
-        style: "bg-pink-50 md:flex-row-reverse"
-    },
-    {
-        num: "05",
-        heading: "Nanocrystalline Silver + Collagen",
-        desc: "A next-generation wound dressing combining the antimicrobial power of nanocrystalline silver with collagen’s regenerative properties to prevent infections and accelerate healing.",
-        route: "/products/nanocrystalline-silver-collagen",
-        imageSrc: "/debrefix.png",
-        modelUrl: "collabact_nano.glb",
-        style: "bg-yellow-50"
-    }
+  {
+    num: "01",
+    name: "Debrefix",
+    heading: "Papain + Urea Enzymatic Debriding Topical Cream",
+    desc: "A powerful enzymatic formulation designed to gently and effectively remove necrotic tissue, promoting faster wound healing for chronic wounds, burns, and diabetic foot ulcers.",
+    route: "/products/debrefix",
+    modelUrl: "/debrefix.glb",
+    style: "bg-blue-50",
+    composition: ["Papain", "Urea"],
+    uses: ["Chronic wounds", "Burns", "Diabetic foot ulcers", "Necrotic tissue removal"],
+    benefits: [
+      "Promotes faster wound healing",
+      "Painless enzymatic debridement",
+      "Reduces infection risk",
+      "Supports tissue regeneration",
+    ],
+  },
+  {
+    num: "02",
+    name: "Collabact M2",
+    heading: "Mupirocin + Metronidazole + Collagen Powder",
+    desc: "An advanced wound care solution that combines antibacterial and anti-inflammatory agents with collagen to reduce infection, accelerate healing, and restore skin integrity.",
+    route: "/products/collabact-m2",
+    modelUrl: "/collabact_m2.glb",
+    style: "bg-green-50 md:flex-row-reverse",
+    composition: ["Mupirocin", "Metronidazole", "Collagen"],
+    uses: ["Infected wounds", "Post-surgical wounds", "Diabetic ulcers"],
+    benefits: [
+      "Antibacterial & anti-inflammatory action",
+      "Accelerates granulation tissue formation",
+      "Collagen aids in skin regeneration",
+    ],
+  },
+  {
+    num: "03",
+    name: "Collabact Nu",
+    heading: "Collagen Dry Sheets",
+    desc: "A collagen-based wound dressing that supports tissue regeneration, maintains a moist environment, and enhances the body’s natural healing process for chronic and surgical wounds.",
+    route: "/products/collabact-nu",
+    modelUrl: "/collabact_nu.glb",
+    style: "bg-purple-50",
+    composition: ["Type I Collagen"],
+    uses: ["Chronic wounds", "Surgical wounds", "Bed sores"],
+    benefits: [
+      "Provides structural support for new tissue",
+      "Maintains moist wound environment",
+      "Speeds up healing",
+    ],
+  },
+  {
+    num: "04",
+    name: "Collabact W",
+    heading: "Collagen Wet Sheets",
+    desc: "Pre-hydrated collagen sheets designed for easy application on wounds. They promote faster healing by maintaining moisture balance and reducing patient discomfort.",
+    route: "/products/collabact-w",
+    modelUrl: "/collabact_w.glb",
+    style: "bg-pink-50 md:flex-row-reverse",
+    composition: ["Type I Collagen (Hydrated)"],
+    uses: ["Chronic wounds", "Burn wounds", "Skin graft sites"],
+    benefits: [
+      "Easy application without pre-moistening",
+      "Provides immediate hydration",
+      "Reduces patient discomfort",
+    ],
+  },
+  {
+    num: "05",
+    name: "Collabact Nano",
+    heading: "Nanocrystalline Silver + Collagen",
+    desc: "A next-generation wound dressing combining the antimicrobial power of nanocrystalline silver with collagen’s regenerative properties to prevent infections and accelerate healing.",
+    route: "/products/collabact-nano",
+    modelUrl: "/collabact_nano.glb",
+    style: "bg-yellow-50",
+    composition: ["Nanocrystalline Silver", "Collagen"],
+    uses: ["Infected wounds", "Burns", "Chronic ulcers"],
+    benefits: [
+      "Strong antimicrobial protection",
+      "Prevents biofilm formation",
+      "Enhances healing process",
+    ],
+  },
 ];

@@ -1,35 +1,24 @@
 "use client";
 import React, { Suspense, useRef } from "react";
 import { MoveUpRight } from "lucide-react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
+import Link from "next/link";
 import ModelViewer from "./ModelView";
 
 interface ProductCardProps {
   num: string;
   heading: string;
   desc: string;
-  route: string;
-  modelUrl: string; // ✅ only .glb now
+  route: string; // ✅ product-specific route
+  modelUrl: string;
   style: string;
 }
 
 const MovingLights = () => {
   const dirLight = useRef<THREE.DirectionalLight>(null);
   const pointLight = useRef<THREE.PointLight>(null);
-
-  useFrame(({ clock }) => {
-    const t = clock.getElapsedTime();
-
-    if (dirLight.current) {
-      dirLight.current.position.set(Math.sin(t) * 5, 4, Math.cos(t) * 5);
-    }
-
-    if (pointLight.current) {
-      pointLight.current.position.set(Math.cos(t) * 3, 2 + Math.sin(t * 2), Math.sin(t) * 3);
-    }
-  });
 
   return (
     <>
@@ -53,14 +42,16 @@ const ProductCard = ({ num, heading, desc, route, modelUrl, style }: ProductCard
         </div>
         <h1 className="text-3xl font-semibold">{heading}</h1>
         <p className="text-xs">{desc}</p>
-        <div className="flex gap-1 items-center group">
+
+        {/* 🔗 Learn More Button */}
+        <Link href={route} className="flex gap-1 items-center group w-fit">
           <div className="h-10 flex justify-center items-center text-xs cursor-pointer duration-300 rounded-sm text-white bg-black p-2">
             Learn More
           </div>
           <div className="h-10 flex justify-center items-center cursor-pointer duration-300 rounded-sm text-white bg-black p-2">
             <MoveUpRight />
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Right Section → GLB Viewer */}
@@ -69,7 +60,7 @@ const ProductCard = ({ num, heading, desc, route, modelUrl, style }: ProductCard
           <Suspense fallback={null}>
             <ModelViewer url={modelUrl} />
           </Suspense>
-          <MovingLights /> {/* 🔥 Animated Lights */}
+          <MovingLights />
           <OrbitControls enableZoom={true} autoRotate autoRotateSpeed={1.5} />
         </Canvas>
       </div>
