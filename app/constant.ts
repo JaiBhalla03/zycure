@@ -61,26 +61,26 @@ export const TeamCardData = [
     {
         reverse: false,
         name: 'Ritu Bhalla',
-        designation: 'Whole Time Director',
-        desc: 'Leads the strategic vision of Zycure, focusing on long-term growth, business development, and fostering innovation in Orthopedics and healthcare solutions.'
+        designation: 'Director',
+        desc: "She leads the strategic vision of Zycure with a strong focus on long-term growth, business development, and innovation in Orthopedics and healthcare solutions. With exceptional leadership skills, she excels at building, guiding, and motivating teams, ensuring that every member is aligned with the company’s mission and works collaboratively towards achieving excellence."
     },
     {
         reverse: true,
         name: 'Pankaj Shukla',
-        designation: 'Whole Time Director',
-        desc: 'Oversees operations and strategic collaborations, ensuring efficient processes, strong partnerships with top pharma companies, and smooth execution across all business functions.'
+        designation: 'Director',
+        desc: "With a strong background in legal affairs and expertise in marketing strategy, he ensures Zycure operates with full regulatory compliance while also driving market expansion. His dual skill set helps the company navigate complex legal landscapes, safeguard intellectual property, and craft impactful marketing strategies that position Zycure as a trusted leader in healthcare solutions."
     },
     {
         reverse: false,
         name: 'Dr. Lalit Kumar Singh',
-        designation: 'Whole Time Director',
-        desc: 'Brings extensive expertise in healthcare and biopharmaceuticals, guiding research initiatives and product development to ensure high-quality patient-centric solutions.'
+        designation: 'Director',
+        desc: "As an MS General Surgeon with extensive experience in healthcare and biopharmaceuticals, he brings invaluable clinical insights to Zycure. His medical expertise guides research initiatives and product development, ensuring that our solutions are not only scientifically sound but also patient-centric, addressing real-world healthcare challenges with precision and care."
     },
     {
         reverse: true,
         name: 'Dr. Gaurav Kumar Saxena',
-        designation: 'Whole Time Director',
-        desc: 'Dr. Gaurav Kumar Saxena brings over 25 years of expertise in the pharmaceutical industry, having worked with renowned companies Like Sun Pharma,Alkem,Ipca &MSN His extensive experience spans critical care, acute, gynecology and gastroenterology segments, with a proven track record of Building and maintaining strong relationships with core customers,Delivering effective, result-oriented team and field management.Dr. Saxena leadership and expertise make him a valuable asset in the pharmaceutical industry.'
+        designation: 'Director',
+        desc: "He brings over 25 years of expertise in the pharmaceutical industry, having worked with leading companies such as Sun Pharma, Alkem, Ipca, and MSN. His extensive experience spans critical care, acute, gynecology, and gastroenterology segments, with a proven record of building strong customer relationships, delivering result-driven team leadership, and effective field management. His leadership and deep industry knowledge make him an invaluable asset to the organization."
     }
 ];
 
@@ -116,10 +116,10 @@ export const missionCardData = [
 export const productCardData = [
   {
     num: "01",
-    name: "Debrefix",
+    name: "Debrifix",
     heading: "Papain + Urea Enzymatic Debriding Topical Cream",
     desc: "A powerful enzymatic formulation designed to gently and effectively remove necrotic tissue, promoting faster wound healing for chronic wounds, burns, and diabetic foot ulcers.",
-    route: "/products/debrefix",
+    route: "/products/debrifix",
     modelUrl: "/debrefix.glb",
     style: "bg-blue-50",
     composition: ["Papain", "Urea"],

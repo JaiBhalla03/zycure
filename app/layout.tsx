@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     "Zycure Biotech and Zychor Biologicals specialize in Orthopedics, Plastic Surgery, and Chronic Wound Management with pan-India operations.",
   keywords: [
     "Zycure Biotech",
+    "Zycure",
+    "Ritu Bhalla",
+    "Pankaj Shukla",
+    "Dr. Gaurav Kumar Saxena",
+    "Dr. Lalit Kumar Singh",
     "Zychor Biologicals",
     "Pharma Company India",
     "Orthopedics",
